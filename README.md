@@ -7,7 +7,7 @@ Replace `username` with you own username.
 ```bash
 # Launch two containers with a webserver serving /usr/share/nginx/html on port 80
 host> kubectl run username-src -it --image=praqma/network-multitool:extra --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-europe-west6-a-ab41.edge-net.io" }}}' --requests='cpu=100m,memory=512Mi'
-host> kubectl run username-dst -it --image=praqma/network-multitool:extra --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-europe-west6-a-ab41.edge-net.io" }}}' --requests='cpu=100m,memory=512Mi'
+host> kubectl run username-dst -it --image=praqma/network-multitool:extra --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-asia-east2-a-e265.edge-net.io" }}}' --requests='cpu=100m,memory=512Mi'
 
 # Attach to a shell in each containers
 host> kubectl exec -it username-src -- /bin/bash
