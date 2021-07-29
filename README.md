@@ -13,7 +13,7 @@ host> kubectl run username-dst -it --image=praqma/network-multitool:extra --over
 host> kubectl exec -it username-src -- /bin/bash
 host> kubectl exec -it username-dst -- /bin/bash
 
-# Get the IP addresses of the dst container from src (TODO: Not needed if cluster DNS?)
+# Get the IP addresses of the dst container from src
 # In src shell:
 src> ip addr show dev eth0
 # 10.xxx.xxx.xxx
@@ -26,7 +26,7 @@ dst> dd if=/dev/urandom of=/usr/share/nginx/html/128M.bin bs=128M count=1
 # Launch a tcpdump on the dst container
 dst> tcpdump -w dump.pcap
 
-# Download the files (TODO: cluster DNS?)
+# Download the files
 src> curl -O 10.xxx.xxx.xxx/32M.bin
 src> curl -O 10.xxx.xxx.xxx/128M.bin
 
@@ -45,7 +45,6 @@ host> kubectl delete pod username-src username-dst
 - See with Berat the proper RBAC configuration.
 - See with Berat to increase/remove resource quotas.
 - Do we need to always specify `--requests` in `kubectl run` ?
-- Fix DNS in cloud nodes
 
 ## Warning
 
