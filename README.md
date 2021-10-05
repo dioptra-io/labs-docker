@@ -6,8 +6,8 @@ Replace `username` with you own username.
 
 ```bash
 # Launch two containers with a webserver serving /usr/share/nginx/html on port 80
-host> kubectl run username-src -it --image=praqma/network-multitool:extra --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-europe-west6-a-ab41.edge-net.io" }}}' --requests='cpu=100m,memory=512Mi'
-host> kubectl run username-dst -it --image=praqma/network-multitool:extra --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-asia-east2-a-e265.edge-net.io" }}}' --requests='cpu=100m,memory=512Mi'
+host> kubectl run username-src --image=dioptraio/eduction --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-europe-west6-a-ab41.edge-net.io" }}}' --requests='cpu=m,memory=16Mi'
+host> kubectl run username-dst --image=dioptraio/eduction --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-asia-east2-a-e265.edge-net.io" }}}' --requests='cpu=1m,memory=16Mi'
 
 # Attach to a shell in each containers
 host> kubectl exec -it username-src -- /bin/bash
@@ -39,13 +39,3 @@ host> kubectl cp username-dst:dump.pcap dump.pcap
 # Delete the containers
 host> kubectl delete pod username-src username-dst
 ```
-
-## TODO
-
-- See with Berat the proper RBAC configuration.
-- See with Berat to increase/remove resource quotas.
-- Do we need to always specify `--requests` in `kubectl run` ?
-
-## Warning
-
-- Traceroute between (GCP) cloud nodes (on their public IPs) => chances that we see nothing due to private infra.
