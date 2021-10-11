@@ -6,4 +6,4 @@ RUN apk update \
 	python3 \
 	py3-pip
 
-RUN pip3 install --no-cache-dir ipython scapy
+RUN pip3 install --no-cache-dir ipython scapy requests python-whois
