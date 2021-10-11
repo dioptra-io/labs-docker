@@ -2,6 +2,7 @@ FROM praqma/network-multitool:extra
 
 RUN apk update \
 	&& apk add \
+	iperf \
 	python3 \
 	py3-pip
 

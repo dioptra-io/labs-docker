@@ -14,6 +14,7 @@ docker run -ti dioptraio/education /bin/bash
 ## Ubuntu packages added
 
 * python (3.8) and Pip3
+* iPerf
 
 
 ## Python libraries added
