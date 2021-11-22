@@ -1,6 +1,6 @@
 # education
 
-## Lab POC
+## Lab Procedure
 
 Replace `username` with you own username.
 
