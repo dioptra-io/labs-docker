@@ -1,12 +1,19 @@
 # education
 
+
+This repository contains the Dockerfile for the [education](https://hub.docker.com/repository/docker/dioptraio/education) public image.  
+The image is automatically built for each commit to the `main` branch.
+
 ## Lab Procedure
 
+Here is an example of a procedure that can be made by a registred student with a lab.  
 Replace `username` with you own username.
+
+Note that you must be registered in the EdgeNet plateform (see [here](https://github.com/EdgeNet-project/edgenet/blob/main/docs/tutorials/user_registration.md)). In this example below, we assume that you uses the EdgeNet kubeconfig file (see [here](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) for more information).
 
 ```bash
 # Launch two containers with a webserver serving /usr/share/nginx/html on port 80
-host> kubectl run username-src --image=dioptraio/eduction --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-europe-west6-a-ab41.edge-net.io" }}}' --requests='cpu=m,memory=16Mi'
+host> kubectl run username-src --image=dioptraio/eduction --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-europe-west6-a-ab41.edge-net.io" }}}' --requests='cpu=1m,memory=16Mi'
 host> kubectl run username-dst --image=dioptraio/eduction --overrides='{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/hostname": "gcp-asia-east2-a-e265.edge-net.io" }}}' --requests='cpu=1m,memory=16Mi'
 
 # Attach to a shell in each containers
