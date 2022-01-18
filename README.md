@@ -6,7 +6,7 @@ It's an augmented version of [Network MultiTool](https://github.com/Praqma/Netwo
 
 
 ```
-docker run -ti dioptraio/education /bin/bash
+docker run -ti ghcr.io/dioptra-io/labs-docker:main /bin/bash
 ```
 
 
